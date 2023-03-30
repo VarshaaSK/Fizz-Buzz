@@ -15,30 +15,27 @@ public class FizzBuzz {
     }
 
 
-    public String multipleOfThree() {
-        if(validityCheck()){
-            if(number % 3 == 0){
-                return "Fizz";
-            }
-        }
-        throw new IllegalArgumentException();
-    }
-
-    public String multipleOfFive() {
-        if(validityCheck()){
-            if(number % 5 == 0){
-                return "Buzz";
-            }
-        }
-        throw new IllegalArgumentException();
-    }
-
-    public String notMultipleOfAny() {
+    public String checkNumber(){
+        String numberAsString = Integer.toString(number);
         if(validityCheck()){
             if(number % 3 != 0 && number % 5 != 0){
-                return Integer.toString(number);
+                return numberAsString;
+            }
+            else if(number % 3 == 0 && number % 5 == 0){
+                return "FizzBuzz";
+            }
+            else if(number % 3 == 0 || String.valueOf(number).contains("3")){
+                return "Fizz";
+            }
+            else if(number % 5 == 0 || String.valueOf(number).contains("5")){
+                return "Buzz";
+            }
+            else{
+                return numberAsString;
             }
         }
         throw new IllegalArgumentException();
     }
 }
+
+//String.valueOf(inputNumber).contains("3")
